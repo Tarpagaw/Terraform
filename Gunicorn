@@ -1,0 +1,10 @@
+After=network.target
+
+[Service]
+User=ec2-user
+Group=ec2-user
+WorkingDirectory=/home/ec2-user/
+ExecStart=/usr/local/bin/gunicorn app:candidates_app --bind 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target
